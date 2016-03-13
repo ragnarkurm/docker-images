@@ -17,4 +17,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y php-apc
 # for pecl extensions
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y php-pear
 RUN DEBIAN_FRONTEND=noninteractive apt-get clean
-RUN rm -rf /var/lib/apt/lists/*
+
+# dont delete apt-get update cache
+# easier to install packs from shell (less, vim, etc) for testing
+# RUN rm -rf /var/lib/apt/lists/*
