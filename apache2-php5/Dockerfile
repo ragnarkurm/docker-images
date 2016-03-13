@@ -6,7 +6,8 @@ RUN mkdir /www /www/html /www/logs
 RUN a2enmod php5
 RUN a2enmod rewrite
 
-COPY upload.ini /etc/php5/apache2/conf.d/20-upload.ini
+COPY upload.ini /etc/php5/mods-available/upload.ini
+RUN ln -s /etc/php5/mods-available/upload.ini /etc/php5/apache2/conf.d/20-upload.ini
 
 ENV APACHE_RUN_USER www-data
 ENV APACHE_RUN_GROUP www-data
