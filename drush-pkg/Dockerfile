@@ -9,6 +9,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y curl
 # for achive-backup, archive-restore
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y gzip
+# for comforting user
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y less
 # for sql-cli, sql-dump
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-client
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y php5
