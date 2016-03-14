@@ -16,6 +16,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y php5-gd
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y php5-mysql
 # for achive-backup, archive-restore
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y tar
+# for core-config
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y vim
 # for download
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y wget
 RUN DEBIAN_FRONTEND=noninteractive apt-get clean
