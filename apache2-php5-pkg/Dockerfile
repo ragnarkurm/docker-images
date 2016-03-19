@@ -16,6 +16,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y php5-mysql
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y php-apc
 # for pecl extensions
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y php-pear
+# send out emails from php
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y ssmtp
 RUN DEBIAN_FRONTEND=noninteractive apt-get clean
 
 # dont delete apt-get update cache
