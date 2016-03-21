@@ -3,3 +3,6 @@ SASS
 # Install nodejs and npm, which gets used for lots of stuff with SASS/SCSS
 RUN /usr/bin/yum install --assumeyes --verbose nodejs npm
 RUN /usr/bin/npm install gulp -g
+
+then the runtime just has to make sure to use "npm install" before running
+
