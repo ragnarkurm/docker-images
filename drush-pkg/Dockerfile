@@ -25,6 +25,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y postgresql-client-9.4
 
 # drush cron must be able to send emails
 # site update notifications etc
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y mailutils
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y ssmtp
 
 # php
