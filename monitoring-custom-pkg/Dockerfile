@@ -19,19 +19,12 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y wget
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y gzip
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y tar
 
-# for sql-cli, sql-dump
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-client-5.5
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y postgresql-client-9.4
-
-# drush cron must be able to send emails
-# site update notifications etc
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y ssmtp
-
-# php
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y php5
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y php5-mysql
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y php5-pgsql
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y php5-gd
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y python2.7
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y python-dateutil
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y python-requests
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y python-six
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y python-tz
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y python-influxdb
 
 # cleanup
 RUN DEBIAN_FRONTEND=noninteractive apt-get clean

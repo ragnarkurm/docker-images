@@ -13,6 +13,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y php5-dev
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y php5-gd
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y php5-memcache
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y php5-mysql
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y php5-pgsql
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y php-apc
 # for pecl extensions
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y php-pear
