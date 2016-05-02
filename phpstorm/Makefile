@@ -1,4 +1,4 @@
-IMAGE = phpstorm
+IMAGE = $(shell basename "$$PWD")
 
 build:
 	docker build -t $(IMAGE) .

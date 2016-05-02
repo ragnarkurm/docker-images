@@ -10,5 +10,5 @@ PKGS = \
 build rmi clean:
 	for img in $(PKGS); do make -C "$$img" $@; done
 
-none:
+clean_dangling:
 	docker images --filter "dangling=true" -q | xargs -r docker rmi

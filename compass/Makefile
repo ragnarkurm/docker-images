@@ -1,4 +1,4 @@
-IMAGE = compass
+IMAGE = $(shell basename "$$PWD")
 
 build: $(BIN)
 	docker build -t $(IMAGE) .

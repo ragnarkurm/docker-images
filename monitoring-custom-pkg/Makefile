@@ -1,4 +1,4 @@
-IMAGE = monitoring-custom-pkg
+IMAGE = $(shell basename "$$PWD")
 
 build:
 	docker build -t $(IMAGE) .

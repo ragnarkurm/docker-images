@@ -1,4 +1,4 @@
-IMAGE = php7-composer
+IMAGE = $(shell basename "$$PWD")
 
 build:
 	docker build -t $(IMAGE) .

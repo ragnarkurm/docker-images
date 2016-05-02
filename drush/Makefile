@@ -1,4 +1,4 @@
-IMAGE = drush
+IMAGE = $(shell basename "$$PWD")
 BIN = drush.phar
 
 build: $(BIN)

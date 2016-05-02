@@ -1,4 +1,4 @@
-IMAGE = code-sniffer
+IMAGE = $(shell basename "$$PWD")
 
 build: $(BIN)
 	docker build -t $(IMAGE) .

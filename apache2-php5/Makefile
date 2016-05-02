@@ -1,4 +1,4 @@
-IMAGE = apache2-php5
+IMAGE = $(shell basename "$$PWD")
 
 build:
 	docker build -t $(IMAGE) .

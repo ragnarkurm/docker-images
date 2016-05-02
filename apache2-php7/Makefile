@@ -1,4 +1,4 @@
-IMAGE = apache2-php7
+IMAGE = $(shell basename "$$PWD")
 
 build:
 	docker build -t $(IMAGE) .
