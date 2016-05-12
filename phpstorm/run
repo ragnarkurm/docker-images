@@ -1,0 +1,20 @@
+#!/bin/bash
+
+if [ "$#" -ne 1 ]; then
+  echo "Usage: $0 <target file or dir>"
+  exit 1
+fi
+
+target="$1"
+
+xhost +
+
+docker \
+  run \
+  -it \
+  --rm \
+  -e DISPLAY="$DISPLAY" \
+  -v /tmp/.X11-unix:/tmp/.X11-unix \
+  -v ~/.WebIde100:/root/.WebIde100 \
+  -v "$target":/root/target \
+  phpstorm "/root/target"
