@@ -1,37 +1,39 @@
 FROM debian:jessie
 MAINTAINER ragnar@waalaskala.com
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get update
-# install apt-utils as early as possible to prevent further nagging
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y apt-utils
+ENV DEBIAN_FRONTEND noninteractive
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y wget
+RUN apt-get update
+# install apt-utils as early as possible to prevent further nagging
+RUN apt-get install -y apt-utils
+
+RUN apt-get install -y wget
 RUN echo "deb http://packages.dotdeb.org jessie all" >> /etc/apt/sources.list
 RUN echo "deb-src http://packages.dotdeb.org jessie all" >> /etc/apt/sources.list
 RUN wget https://www.dotdeb.org/dotdeb.gpg
 RUN apt-key add dotdeb.gpg
-RUN DEBIAN_FRONTEND=noninteractive apt-get update
+RUN apt-get update
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y apache2
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y memcached
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y php7.0
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y php7.0-curl
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y php7.0-gd
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y php7.0-mysql
-# ??? RUN DEBIAN_FRONTEND=noninteractive apt-get install -y php-apcu
+RUN apt-get upgrade -y
+RUN apt-get install -y apache2
+RUN apt-get install -y memcached
+RUN apt-get install -y php7.0
+RUN apt-get install -y php7.0-curl
+RUN apt-get install -y php7.0-gd
+RUN apt-get install -y php7.0-mysql
+# ??? RUN apt-get install -y php-apcu
 
 # for pecl extensions
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y php7.0-dev
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y php-pear
+RUN apt-get install -y php7.0-dev
+RUN apt-get install -y php-pear
 
 # send out emails from php
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y ssmtp
+RUN apt-get install -y ssmtp
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y less
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y vim
+RUN apt-get install -y less
+RUN apt-get install -y vim
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get clean
+RUN apt-get clean
 
 # dont delete apt-get update cache
 # easier to install packs from shell (less, vim, etc) for testing

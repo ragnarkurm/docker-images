@@ -1,11 +1,13 @@
 FROM php7-pkg
 MAINTAINER ragnar@waalaskala.com
 
+ENV DEBIAN_FRONTEND noninteractive
+
 # inspiration
 # https://github.com/andrewholgate/docker-drupal8-php7/blob/master/Dockerfile
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y git
-RUN DEBIAN_FRONTEND=noninteractive apt-get clean
+RUN apt-get install -y git
+RUN apt-get clean
 
 RUN install -o root -g root -m 755 -d /data
 

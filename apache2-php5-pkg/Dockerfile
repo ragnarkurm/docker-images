@@ -1,25 +1,27 @@
 FROM debian:latest
 MAINTAINER ragnar@waalaskala.com
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get update
+ENV DEBIAN_FRONTEND noninteractive
+
+RUN apt-get update
 # install apt-utils as early as possible to prevent further nagging
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y apt-utils
-RUN DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y apache2
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y memcached
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y php5
+RUN apt-get install -y apt-utils
+RUN apt-get upgrade -y
+RUN apt-get install -y apache2
+RUN apt-get install -y memcached
+RUN apt-get install -y php5
 # for pecl extensions
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y php5-dev
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y php5-gd
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y php5-memcache
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y php5-mysql
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y php5-pgsql
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y php-apc
+RUN apt-get install -y php5-dev
+RUN apt-get install -y php5-gd
+RUN apt-get install -y php5-memcache
+RUN apt-get install -y php5-mysql
+RUN apt-get install -y php5-pgsql
+RUN apt-get install -y php-apc
 # for pecl extensions
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y php-pear
+RUN apt-get install -y php-pear
 # send out emails from php
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y ssmtp
-RUN DEBIAN_FRONTEND=noninteractive apt-get clean
+RUN apt-get install -y ssmtp
+RUN apt-get clean
 
 # dont delete apt-get update cache
 # easier to install packs from shell (less, vim, etc) for testing
