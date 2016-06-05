@@ -5,6 +5,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 # apt basics
 RUN apt-get update
+
 # install apt-utils as early as possible to prevent further nagging
 RUN apt-get install -y apt-utils
 RUN apt-get upgrade -y
