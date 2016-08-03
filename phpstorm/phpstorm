@@ -6,6 +6,12 @@ if [ "$#" -ne 1 ]; then
 fi
 
 target="$1"
+target="$(readlink -e "$target")"
+
+if [ -z "$target" ]; then
+  echo "$1: must be existing file or path."
+  exit 1
+fi
 
 xhost +
 
@@ -13,6 +19,7 @@ docker \
   run \
   -it \
   --rm \
+  --dns=8.8.8.8 \
   -e DISPLAY="$DISPLAY" \
   -v /tmp/.X11-unix:/tmp/.X11-unix \
   -v ~/.WebIde100:/root/.WebIde100 \

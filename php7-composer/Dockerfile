@@ -7,7 +7,10 @@ ENV DEBIAN_FRONTEND noninteractive
 # https://github.com/andrewholgate/docker-drupal8-php7/blob/master/Dockerfile
 
 RUN apt-get install -y git
+RUN apt-get install -y unzip
+
 RUN apt-get clean
+RUN rm -rf /var/lib/apt/lists/*
 
 RUN install -o root -g root -m 755 -d /data
 

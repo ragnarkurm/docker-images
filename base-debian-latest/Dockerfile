@@ -13,3 +13,7 @@ RUN apt-get upgrade -y
 # for container inspection
 RUN apt-get install -y less
 RUN apt-get install -y vim
+
+# for download
+RUN apt-get install -y curl
+RUN apt-get install -y wget
